@@ -1,69 +1,62 @@
-# React + TypeScript + Vite
+SPA-портфолио
+Цель проекта:
+Создание индивидуального портфолио с использованием современных технологий для демонстрации навыков, проектов и возможностей веб-разработчика. Портфолио должно быть адаптивным, стилизованным и удобным для пользователя.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Технологии:
+React 18+ – библиотека для построения интерфейсов
+TypeScript – обеспечение типизации и устойчивости кода
+Vite – быстрый сборщик проекта
+Styled Components – управление стилями через CSS-in-JS
+Framer Motion – добавление анимаций
+React Router DOM – реализация SPA (одностраничного приложения)
+React Icons – использование иконок
+HTML5 / CSS3 – семантическая разметка и стили
 
-Currently, two official plugins are available:
+Структура проекта:
+Проект состоит из следующих ключевых частей:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Страницы:
+Главная (Home) – приветствие, краткое описание.
+Проекты (Projects) – список выполненных проектов с описаниями и изображениями.
+Навыки (Skills) – перечень используемых технологий.
+Контакты (Contact) – форма обратной связи.
 
-## Expanding the ESLint configuration
+Компоненты:
+Header – навигационная панель с логотипом, ссылками и кнопкой темы.
+ThemeToggle – переключатель между светлой и тёмной темами.
+ProjectCard – карточка проекта с заголовком, описанием и изображением.
+AnimatedSection – анимированное появление секций при скролле.
+Footer – нижний блок с контактами или авторством.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Стили:
+GlobalStyle – глобальные стили и сброс значений.
+Темизация – поддержка светлой и тёмной темы через ThemeProvider.
+Анимации – плавные переходы и эффекты появления через framer-motion.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Темизация (dark/light mode)
+Пользователь может переключать между светлой и тёмной темой с помощью кнопки ThemeToggle. Темизация реализована через styled-components, что позволяет динамически менять цвета и внешний вид элементов.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Анимации и эффекты
+Для улучшения пользовательского опыта используются:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Появление секций при скролле (через framer-motion)
+Плавные переходы между состояниями
+Эффекты наведения на кнопки и элементы
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Адаптивность
+Проект полностью адаптирован под мобильные устройства:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Респонсивный хедер
+Удобная навигация
+Корректное отображение контента на экранах любого размера
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Изображения
+Все изображения проектов хранятся в папке public/images/ и подключаются через абсолютные пути (/images/project1.png). Это позволяет легко масштабировать и обновлять медиа без необходимости импорта.
+
+Форма обратной связи
+На странице "Контакты" реализована простая HTML-форма с полями:
+Имя
+Email
+Сообщение
+Форма отправляет данные (в данном случае с выводом alert) и может быть расширена для интеграции с backend или email-сервисами.
+
